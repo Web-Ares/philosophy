@@ -1,0 +1,122 @@
+/* --------------- philosophy --------------- */
+.philosophy {
+  position: relative;
+  width: calc(100% - 60px);
+  z-index: 2;
+  padding: 30px 10px;
+  background: rgba(255,255,255,.3);
+  border: 2px solid #797979;
+  border-width: 2px 2px 0 2px;
+  color: #565656;
+
+  &:before {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: -2px;
+    width: 33px;
+    height: 2px;
+    background: #797979;
+    content: '';
+  }
+
+  &:after {
+    display: block;
+    position: absolute;
+    top: 100%;
+    right: -2px;
+    left: 80px;
+    height: 2px;
+    background: #797979;
+    content: '';
+  }
+
+  p {
+    position: relative;
+    top: 20px;
+    font-size: 3vw;
+    line-height: 4vw;
+    opacity: 0;
+    transition: all .3s ease-in-out;
+  }
+
+  &_show {
+    p {
+      top: 0;
+      opacity: 1;
+    }
+  }
+
+  &__arrow {
+    display: block;
+    position: absolute;
+    bottom: -20px;
+    left: 43px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 15px 12.5px 0 12.5px;
+    border-color: #797979 transparent transparent transparent;
+  }
+
+  &__title {
+    margin-bottom: 10px;
+    font-size: 6vw;
+    font-weight: 400;
+    font-family: $font-title;
+    color: #565656;
+  }
+}
+
+@media (min-width: $portrait) {
+  .philosophy {
+    position: absolute;
+    top: auto;
+    right: auto;
+    bottom: 89px;
+    left: 50px;
+    width: calc(100% - 100px);
+    height: calc(100% - 200px);
+    max-width: 666px;
+    max-height: 455px;
+    padding: 135px 54px 54px;
+    background: none;
+
+    &__title {
+      margin-bottom: 32px;
+      font-size: 72px;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 22px;
+    }
+  }
+}
+
+@media (min-width: $landscape) {
+  .philosophy {
+    left: 111px;
+    width: calc(100% - 111px);
+    height: calc(100% - 100px);
+    max-width: 666px;
+    max-height: 455px;
+    padding: 135px 54px 54px;
+
+    &__title {
+      font-size: 72px;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 22px;
+    }
+  }
+}
+
+@media (min-width: $desktop) {
+  .philosophy {
+
+  }
+}
+/* --------------- /philosophy --------------- */

@@ -1,0 +1,74 @@
+/* --------------- btn --------------- */
+.btn {
+  display: inline-block;
+  position: relative;
+
+  &:before {
+    display: block;
+    @include absoluteCenterY();
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: #a0b3b9;
+    transition: all .3s ease-in-out;
+    content: '';
+  }
+
+  span {
+    display: block;
+    position: relative;
+    min-width: 130px;
+    z-index: 1;
+    padding: 7px;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #a0b3b9;
+    border: 2px solid #a0b3b9;
+    transition: color .3s ease-in-out;
+  }
+
+  &:hover {
+
+    &:before {
+      height: 100%;
+    }
+
+    span {
+      color: #fff;
+    }
+  }
+
+  &_type2 {
+    display: block;
+
+    span {
+      border-color: transparent;
+    }
+
+    &:before { background: #f0d2b0; }
+  }
+}
+
+@media (min-width: $portrait) {
+  .btn {
+    span {
+      min-width: 215px;
+      padding: 19px 10px;
+      font-size: 18px;
+    }
+  }
+}
+
+@media (min-width: $landscape) {
+  .btn {
+
+  }
+}
+
+@media (min-width: $desktop) {
+  .btn {
+
+  }
+}
+/* --------------- /btn --------------- */

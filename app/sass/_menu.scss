@@ -1,0 +1,206 @@
+/* --------------- menu --------------- */
+.menu {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 4;
+
+  &__btn {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 40px;
+    border: 1px solid #f0d2b0;
+    cursor: pointer;
+
+    span {
+      display: block;
+      @include absoluteCenter();
+      width: 70%;
+      max-width: 40px;
+      height: 2px;
+      background: #797979;
+
+      &:before {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background: #f0d2b0;
+        transition: width .3s ease .1s;
+        content: '';
+      }
+
+      &:first-child {
+        top: 10px;
+        @include absoluteCenterX();
+
+        &:before {
+          transition-delay: 0s;
+        }
+      }
+
+      &:last-child {
+        top: auto;
+        bottom: 10px;
+        @include absoluteCenterX();
+
+        &:before {
+          transition-delay: .2s;
+        }
+      }
+    }
+
+    &:hover {
+
+      span:before { width: 100%;  }
+    }
+  }
+
+  &__wrap {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    background: #f0d2b0;
+    transition: all .5s ease-in-out;
+
+    &:before {
+      display: block;
+      position: absolute;
+      top: 13px;
+      left: 46px;
+      height: 1px;
+      width: 0;
+      z-index: 2;
+      border: 8px solid #f0d2b0;
+      border-width: 8px 0;
+      background: #797979;
+      transition: width .5s ease .5s;
+      content: '';
+    }
+
+    &:after {
+      display: block;
+      position: absolute;
+      top: 1px;
+      left: 2px;
+      width: 50px;
+      height: 40px;
+      opacity: 0;
+      z-index: 1;
+      background: url("../img/menu-arrow.png") no-repeat center;
+      border: 1px solid #797979;
+      transition: opacity .3s ease .5s;
+      content: '';
+    }
+  }
+
+  &__item {
+    display: block;
+    position: relative;
+    padding: 12px 10px;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #797979;
+    white-space: nowrap;
+
+    &:visited { color: #797979; }
+
+    &-hover {
+      display: block;
+      overflow: hidden;
+      @include absoluteCenterY();
+      left: 0;
+      width: 100%;
+      height: 0;
+      padding: 0 10px;
+      color: #fff;
+      opacity: 0;
+      transition: all .3s ease-in-out;
+    }
+
+    &:hover {
+      .menu__item-hover {
+        height: 100%;
+        padding: 12px 10px;
+        opacity: 1;
+      }
+    }
+  }
+
+  &.open {
+
+    .menu__wrap {
+      width: 250px;
+      height: 390px;
+      padding: 40px 10px 10px;
+      max-height: calc(100vh - 10px);
+      overflow: scroll;
+
+      &:before { width: 100%; }
+
+      &:after { opacity: 1; }
+    }
+  }
+}
+
+@media (min-width: $portrait) {
+  .menu {
+    top: 43px;
+    left: 29px;
+
+    &__item {
+      padding: 18px 20px;
+      font-size: 30px;
+
+      &-hover { padding: 0 20px; }
+
+      &:hover {
+        .menu__item-hover { padding: 18px 20px; }
+      }
+    }
+
+    &__wrap {
+
+      &:before {
+        top: 17px;
+        left: 55px;
+      }
+
+      &:after {
+        width: 62px;
+        height: 48px;
+      }
+    }
+
+    &__btn {
+      width: 62px;
+      height: 48px;
+
+      span {
+
+        &:first-child { top: 12px; }
+
+        &:last-child { bottom: 12px; }
+      }
+    }
+    &.open {
+      width: calc(100% - 58px);
+
+      .menu__wrap {
+        width: 470px;
+        height: 678px;
+        padding: 100px 42px 10px;
+        max-height: calc(100vh - 43px);
+      }
+    }
+  }
+}
+/* --------------- /menu --------------- */

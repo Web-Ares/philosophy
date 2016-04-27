@@ -1,0 +1,39 @@
+/* --------------- logo --------------- */
+.logo {
+  display: inline-block;
+  width: 86px;
+  height: 106px;
+  margin: 0 auto 42px;
+  z-index: 2;
+  text-align: center;
+
+  img {
+    display: inline-block;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: $portrait) {
+  .logo {
+    width: 60px;
+    height: 72px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: $landscape) {
+  .logo {
+    width: 98px;
+    height: 119px;
+    margin-bottom: 140px;
+  }
+}
+
+@media (min-width: $desktop) {
+  .logo {
+    width: auto;
+    height: auto;
+    margin-bottom: 166px;
+  }
+}
+/* --------------- /logo --------------- */

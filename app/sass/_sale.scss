@@ -1,0 +1,149 @@
+/* --------------- sale --------------- */
+.sale {
+  overflow: hidden;
+  position: relative;
+  padding: 36px 60px;
+
+  .site__title {
+    position: absolute;
+    top: 20px;
+    right: 5px;
+    z-index: 3;
+    color: #d1cfcf;
+  }
+
+  &__bg {
+    display: block;
+    position: absolute;
+    top: -40%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &__wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__item {
+    position: relative;
+    width: 100%;
+    padding: 24px 11px 40px;
+    margin-bottom: 40px;
+    border: 2px solid #868888;
+    z-index: 2;
+
+    .btn {
+      @include absoluteCenterX();
+      bottom: 0;
+      opacity: 0;
+      transition: all .3s ease-in-out;
+    }
+
+    &:hover {
+      .btn {
+        opacity: 1;
+        bottom: 40px;
+      }
+
+      .sale__info {
+        opacity: 0;
+      }
+    }
+  }
+
+  &__price {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    position: relative;
+    width: calc(100% + 60px);
+    left: -30px;
+    height: 289px;
+    padding: 10px 30px;
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #fff;
+    font-family: $font-semibold;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__info {
+    position: relative;
+    transition: all .3s ease-in-out;
+
+    p {
+      font-size: 14px;
+      line-height: 22px;
+      color: #302824;
+    }
+  }
+
+  &__title {
+    margin-bottom: 15px;
+    font-size: 22px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #302824;
+  }
+}
+
+@media (min-width: $portrait) {
+  .sale {
+    padding: 36px 113px;
+
+    .site__title {
+      top: 20px;
+      right: 45px;
+      color: #fff;
+    }
+
+    &__wrap {
+      padding: 0 20px;
+    }
+
+  }
+}
+
+@media (min-width: $landscape) {
+  .sale {
+
+    &__wrap {
+      justify-content: space-between;
+      padding: 0 78px;
+    }
+
+    &__item {
+      width: calc(50% - 85px);
+      margin-bottom: 0;
+    }
+
+    &__price {
+      width: calc(100% + 156px);
+      left: -78px;
+      height: 289px;
+      padding: 26px 78px;
+      margin-bottom: 40px;
+      font-size: 48px;
+    }
+
+  }
+}
+
+@media (min-width: $desktop) {
+  .sale {
+
+  }
+}
+/* --------------- /logo --------------- */
