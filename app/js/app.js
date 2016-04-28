@@ -5,7 +5,9 @@ $(function(){
 
         $(window).on( {
             'load': function() {
-                $( '.spinner').addClass( 'hide' );
+                setTimeout( function() {
+                    $( '.spinner').addClass( 'hide' );
+                }, 1000 );
             }
         } );
 
@@ -21,7 +23,7 @@ $(function(){
             new SiteTitle( $(this) );
         } );
 
-        $('.menu__btn').each( function() {
+        $('.menu').each( function() {
             new Menu( $(this) );
         } );
 
@@ -40,6 +42,26 @@ $(function(){
         $('.news').each( function() {
             new News( $(this) );
         } );
+
+        $( 'body' ).mCustomScrollbar({
+            callbacks:{
+                whileScrolling:function(){
+                    var scrollPosition = parseInt(this.mcs.top*(-1));
+
+                    $('.site__header')[0].obj.paralax( scrollPosition );
+
+                    paralax( $('.collection .site__title'), 0, scrollPosition, 0.3);
+                    paralax( $('.collection__pic'), 0, scrollPosition, 0.15);
+                    paralax( $('.collection__wrap'), scrollPosition, 0, 0.05);
+                }
+            }
+        });
+
+        function paralax( elem, x, y, koef) {
+            elem.css( {
+                'transform': 'translate(' + x*koef + 'px, ' + y*koef +  'px )'
+            } );
+        };
 
     });
 
@@ -251,26 +273,19 @@ $(function(){
 
         //private properties
         var _obj = obj,
-            _site = $('.site'),
-            _menu = _obj.parent();
+            _site = $( '.site' ),
+            _wrap = _obj.find( '.menu__wrap' );
 
         //private methods
         var _addEvents = function () {
                 _obj.on( {
                     click: function() {
-                        _menu.addClass( 'open' );
-                        _site.addClass( 'blur' );
+                        _obj.toggleClass( 'open' );
+                        _site.toggleClass( 'blur' );
                     }
                 } );
 
-                $('body').on( {
-                    click: function() {
-                        _menu.removeClass( 'open' );
-                        _site.removeClass( 'blur' );
-                    }
-                } );
-
-                _menu.on( {
+                _wrap.on( {
                     click: function( event ) {
                         var event = event || window.event;
 
@@ -293,10 +308,10 @@ $(function(){
     var Header = function(obj) {
 
         //private properties
-        var _obj = obj,
+        var _self = this,
+            _obj = obj,
             _siteHeaderBg = _obj.find('.site__header-bg'),
-            _siteHeaderKoef = 0.5,
-            _philosophy = _obj.find('.philosophy');
+            _siteHeaderKoef = 0.5;
 
         //private methods
         var _addEvents = function() {
@@ -309,26 +324,27 @@ $(function(){
                             'transform': 'translate(' + 0 + 'px, ' + scrollPos*_siteHeaderKoef +  'px )'
                         } );
 
-                        _textShow(scrollPos);
                     }
                 } );
 
             },
-            _textShow = function(pos) {
-                if ( pos >= _obj.scrollTop() && pos < _obj.height() ) {
-                    _philosophy.addClass('philosophy_show');
-                } else {
-                    _philosophy.removeClass('philosophy_show');
-                }
+            _paralax = function(scrollPos) {
+
+                _siteHeaderBg.css( {
+                    'transform': 'translate(' + 0 + 'px, ' + scrollPos*_siteHeaderKoef +  'px )'
+                } );
             },
             _init = function() {
                 _addEvents();
-                _textShow($(window).scrollTop());
+                _obj[0].obj = _self;
             };
 
         //public properties
 
         //public methods
+        _self.paralax = function( top ) {
+            _paralax( top );
+        };
 
         _init();
     };

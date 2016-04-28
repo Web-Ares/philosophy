@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="css/application.css">
     <script src="js/vendors/jquery-2.1.4.min.js"></script>
-    <script src="js/vendors/smooth.scroll.js"></script>
+    <script src="js/vendors/jquery.mCustomScrollbar.js"></script>
     <script src="js/app.min.js"></script>
 </head>
 
@@ -23,11 +23,10 @@
         height: 100%;
         z-index: 3;
         background: #f0d2b0;
-        transition: opacity .3s ease-in-out;
+        transition: left .5s ease-in-out;
     }
     .spinner.hide {
-        opacity: 0;
-        z-index: 0;
+        left: 100%;
     }
     .spinner__wrap {
         margin: 100px auto;
@@ -110,8 +109,6 @@
             <span></span>
         </div>
         <!-- /menu__btn -->
-
-        <div class="menu__blur-wrap"></div>
 
         <!-- menu__wrap -->
         <div class="menu__wrap">
@@ -370,6 +367,104 @@
         </div>
         <!-- /most-wanted -->
 
+        <!-- anim -->
+        <div class="anim">
+
+            <!-- site__title -->
+            <h2 class="site__title">most wanted</h2>
+            <!-- /site__title -->
+
+            <!-- anim__item -->
+            <div class="anim__item anim__item_type1">
+
+                <!-- anim__pic -->
+                <div class="anim__pic">
+
+                    <img class="anim__pic-normal" src="pic/most-wanted1.png" alt="zebrabaggy">
+
+                    <img class="anim__pic-hover" src="pic/most-wanted1_hover.png" alt="zebrabaggy">
+
+                    <!-- anim__frame -->
+                    <div class="anim__frame"></div>
+                    <!-- /anim__frame -->
+
+                </div>
+                <!-- /anim__pic -->
+
+                <a href="#" class="btn btn_type2"><span>zebrabaggy</span></a>
+
+            </div>
+            <!-- /anim__item -->
+
+            <!-- anim__item -->
+            <div class="anim__item anim__item_type2">
+
+                <!-- anim__pic -->
+                <div class="anim__pic">
+
+                    <img class="anim__pic-normal" src="pic/most-wanted2.png" alt="fontshirt">
+
+                    <img class="anim__pic-hover" src="pic/most-wanted2_hover.png" alt="fontshirt">
+
+                    <!-- anim__frame -->
+                    <div class="anim__frame"></div>
+                    <!-- /anim__frame -->
+
+                </div>
+                <!-- /anim__pic -->
+
+                <a href="#" class="btn btn_type2"><span>fontshirt</span></a>
+
+            </div>
+            <!-- /anim__item -->
+
+            <!-- anim__item -->
+            <div class="anim__item anim__item_type1">
+
+                <!-- anim__pic -->
+                <div class="anim__pic">
+
+                    <img class="anim__pic-normal" src="pic/most-wanted3.png" alt="peachjacket">
+
+                    <img class="anim__pic-hover" src="pic/most-wanted3_hover.png" alt="peachjacket">
+
+                    <!-- anim__frame -->
+                    <div class="anim__frame"></div>
+                    <!-- /anim__frame -->
+
+                </div>
+                <!-- /anim__pic -->
+
+                <a href="#" class="btn btn_type2"><span>peachjacket</span></a>
+
+            </div>
+            <!-- /anim__item -->
+
+            <!-- anim__item -->
+            <div class="anim__item anim__item_type3">
+
+                <!-- anim__pic -->
+                <div class="anim__pic">
+
+                    <img class="anim__pic-normal" src="pic/most-wanted4.png" alt="ripjeans">
+
+                    <img class="anim__pic-hover" src="pic/most-wanted4_hover.png" alt="ripjeans">
+
+                    <!-- anim__frame -->
+                    <div class="anim__frame"></div>
+                    <!-- /anim__frame -->
+
+                </div>
+                <!-- /anim__pic -->
+
+                <a href="#" class="btn btn_type2"><span>ripjeans</span></a>
+
+            </div>
+            <!-- /anim__item -->
+
+        </div>
+        <!-- /anim -->
+
         <!-- sale -->
         <div class="sale">
 
@@ -439,7 +534,7 @@
             <div class="news__item">
 
                 <!-- news__item-back -->
-                <div class="news__item-back">
+                <a href="#" class="news__item-back">
 
                     <img src="pic/news1.jpg" alt="woolenart">
 
@@ -449,7 +544,7 @@
                     of garment which can be
                     wrapped around your neck.</p>
 
-                </div>
+                </a>
                 <!-- /news__item-back -->
 
             </div>
@@ -459,7 +554,7 @@
             <div class="news__item">
 
                 <!-- news__item-back -->
-                <div class="news__item-back">
+                <a href="#" class="news__item-back">
 
                     <img src="pic/news2.jpg" alt="sweetfash">
 
@@ -469,7 +564,7 @@
                         in every situation of our life.
                     </p>
 
-                </div>
+                </a>
                 <!-- /news__item-back -->
 
             </div>
@@ -479,7 +574,7 @@
             <div class="news__item">
 
                 <!-- news__item-back -->
-                <div class="news__item-back">
+                <a href="#" class="news__item-back">
 
                     <img src="pic/news3.jpg" alt="jewelaura">
 
@@ -490,7 +585,7 @@
                         for soft and young  girls.
                     </p>
 
-                </div>
+                </a>
                 <!-- /news__item-back -->
 
             </div>
