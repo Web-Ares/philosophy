@@ -9,7 +9,7 @@
     top: 20px;
     right: 5px;
     z-index: 3;
-    color: #d1cfcf;
+    color: $sale-site-title-color;
   }
 
   &__bg {
@@ -39,7 +39,7 @@
     width: 100%;
     padding: 24px 11px 40px;
     margin-bottom: 40px;
-    border: 2px solid #868888;
+    border: 2px solid $sale-item-border;
     z-index: 2;
 
     .btn {
@@ -62,7 +62,6 @@
         transition-delay: 0s;
       }
       .sale__info {
-//        opacity: 0;
 
         p {
           top: -20px;
@@ -84,7 +83,7 @@
     padding: 10px 30px;
     margin-bottom: 20px;
     font-size: 22px;
-    color: #fff;
+    color: $sale-price-color;
     font-family: $font-semibold;
     background-repeat: no-repeat;
     background-size: cover;
@@ -93,14 +92,13 @@
 
   &__info {
     position: relative;
-//    transition: all .3s ease-in-out;
 
     p {
       position: relative;
       top: 0;
       font-size: 14px;
       line-height: 22px;
-      color: #302824;
+      color: $sale-info-color;
       transition: all .4s ease-in-out;
     }
   }
@@ -112,7 +110,7 @@
     font-size: 22px;
     font-weight: 400;
     text-transform: uppercase;
-    color: #302824;
+    color: $sale-info-color;
     transition: all .4s ease-in-out .2s;
   }
 }
@@ -124,13 +122,10 @@
     .site__title {
       top: 20px;
       right: 45px;
-      color: #fff;
+      color: $sale-site-title-portrait-color;
     }
 
-    &__wrap {
-      padding: 0 20px;
-    }
-
+    &__wrap { padding: 0 20px; }
   }
 }
 
@@ -155,13 +150,6 @@
       margin-bottom: 40px;
       font-size: 48px;
     }
-
   }
 }
-
-@media (min-width: $desktop) {
-  .sale {
-
-  }
-}
-/* --------------- /logo --------------- */
+/* --------------- /sale --------------- */
