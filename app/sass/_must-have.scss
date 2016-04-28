@@ -10,7 +10,7 @@
     top: 20px;
     right: 5px;
     z-index: 3;
-    color: #fff;
+    color: $must-have-site-title-color;
   }
 
   &__item {
@@ -21,11 +21,7 @@
 
     &:hover {
 
-      .must-have__bg {
-        filter: none;
-
-        &:before { background: transparent; }
-      }
+      .must-have__bg:before { background: transparent; }
 
       .must-have__wrap {
         bottom: 10%;
@@ -52,7 +48,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(255,255,255,.5);
+      background: $must-have-face-back;
       transition: background .3s ease-in-out;
       content: '';
     }
@@ -66,7 +62,7 @@
     opacity: 0;
     font-size: 3vw;
     line-height: 4vw;
-    color: #797979;
+    color: $must-have-color;
     transition: all .3s ease-in-out;
   }
 
@@ -75,7 +71,7 @@
     margin-bottom: 10px;
     font-size: 7vw;
     line-height: 8vw;
-    color: #839da5;
+    color: $must-have-title-color;
     font-family: $font-title;
     font-weight: 400;
   }
@@ -110,13 +106,6 @@
       font-size: 36px;
       line-height: normal;
     }
-  }
-}
-
-@media (min-width: $desktop) {
-  .must-have {
-
-
   }
 }
 /* --------------- /must-have --------------- */

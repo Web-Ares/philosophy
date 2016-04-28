@@ -9,7 +9,7 @@
     left: 0;
     width: 100%;
     height: 0;
-    background: #a0b3b9;
+    background: $btns-hover-back;
     transition: all .3s ease-in-out;
     content: '';
   }
@@ -23,30 +23,24 @@
     font-size: 12px;
     text-transform: uppercase;
     text-align: center;
-    color: #a0b3b9;
-    border: 2px solid #a0b3b9;
+    color: $btns-color;
+    border: 2px solid $btns-border;
     transition: color .3s ease-in-out;
   }
 
   &:hover {
 
-    &:before {
-      height: 100%;
-    }
+    &:before { height: 100%; }
 
-    span {
-      color: #fff;
-    }
+    span { color: $btns-hover-color; }
   }
 
   &_type2 {
     display: block;
 
-    span {
-      border-color: transparent;
-    }
+    span { border-color: transparent; }
 
-    &:before { background: #f0d2b0; }
+    &:before { background: $btns-type2-hover-back; }
   }
 }
 
@@ -57,18 +51,6 @@
       padding: 19px 10px;
       font-size: 18px;
     }
-  }
-}
-
-@media (min-width: $landscape) {
-  .btn {
-
-  }
-}
-
-@media (min-width: $desktop) {
-  .btn {
-
   }
 }
 /* --------------- /btn --------------- */

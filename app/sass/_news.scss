@@ -6,14 +6,13 @@
   justify-content: center;
   position: relative;
   padding: 48px 9px;
-  background: #fff;
+  background: $news-back;
 
   &__item {
     overflow: hidden;
     position: relative;
     width: 100%;
-    border: 9px solid #fff;
-    perspective: 600px;
+    border: 9px solid $news-border;
 
     > img {
       display: block;
@@ -21,7 +20,7 @@
     }
 
     p {
-      color: #292929;
+      color: $news-color;
       font-size: 3vw;
       line-height: 4vw;
     }
@@ -54,14 +53,13 @@
       flex-wrap: wrap;
       overflow: hidden;
       align-content: center;
-      overflow: hidden;
       position: absolute;
       top: 18px;
       right: 53px;
       bottom: 18px;
       left: 53px;
       padding: 6% 10%;
-      border: 2px solid #fff3eb;
+      border: 2px solid $news-back-border;
       border-width: 2px 2px 2px 0;
       transform-origin: center;
       backface-visibility: hidden;
@@ -76,7 +74,7 @@
         left: 0;
         width: 2px;
         height: 21px;
-        background: #fff3eb;
+        background: $news-back-border;
         z-index: 2;
         content: '';
       }
@@ -88,7 +86,7 @@
         left: 0;
         width: 2px;
         height: calc(100% - 51px);
-        background: #fff3eb;
+        background: $news-back-border;
         z-index: 2;
         content: '';
       }
@@ -125,7 +123,7 @@
   &__title {
     margin-bottom: 20px;
     font-size: 6vw;
-    color: #fff;
+    color: $news-title-color;
     font-family: $font-title;
     font-weight: 400;
 
@@ -136,7 +134,7 @@
       left: 0;
       width: 15px;
       height: 15px;
-      background: url('../img/arrow.png');
+      background: $news-back-arrow;
       content: '';
     }
   }
@@ -163,9 +161,7 @@
 @media (min-width: $desktop) {
   .news {
 
-    &__item {
-      width: 33.33333%;
-    }
+    &__item { width: 33.33333%; }
   }
 }
 /* --------------- /news --------------- */

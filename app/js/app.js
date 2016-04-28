@@ -11,14 +11,6 @@ $(function(){
             }
         } );
 
-        $('.collection').each( function() {
-            new Collection( $(this) );
-        } );
-
-        $('.site__header').each( function() {
-            new Header( $(this) );
-        } );
-
         $('.site__title').each( function() {
             new SiteTitle( $(this) );
         } );
@@ -27,88 +19,69 @@ $(function(){
             new Menu( $(this) );
         } );
 
-        $('.must-have').each( function() {
-            new MustHave( $(this) );
-        } );
-
-        $('.most-wanted').each( function() {
-            new MostWanted( $(this) );
-        } );
-
-        $('.sale').each( function() {
-            new Sale( $(this) );
-        } );
-
         $('.news').each( function() {
             new News( $(this) );
         } );
+
+        var collectionTop = $('.collection').offset().top,
+            collectionHeight = $('.collection').height(),
+            mustHaveTop = $('.must-have').offset().top,
+            mustHaveHeight = $('.must-have').height(),
+            mostWantedTop = $('.most-wanted').offset().top,
+            mostWantedHeight = $('.most-wanted').height(),
+            saleTop = $('.sale').offset().top,
+            saleHeight = $('.sale').height(),
+            headerTop = $('.site__header').offset().top,
+            headerHeight = $('.site__header').height(),
+            winHeight = $(window).height();
 
         $( 'body' ).mCustomScrollbar({
             callbacks:{
                 whileScrolling:function(){
                     var scrollPosition = parseInt(this.mcs.top*(-1));
 
-                    $('.site__header')[0].obj.paralax( scrollPosition );
+                    //collection
+                    if ( ( scrollPosition <= ( collectionTop + collectionHeight ) && ( ( winHeight + scrollPosition ) >= collectionTop ) ) ) {
+                        paralax( $('.collection .site__title'), 0, scrollPosition - (collectionTop - winHeight), collectionHeight*0.3/(collectionHeight + winHeight));
+                        paralax( $('.collection__pic'), 0, scrollPosition - (collectionTop - winHeight), collectionHeight*0.15/(collectionHeight + winHeight));
+                        paralax( $('.collection__wrap'), scrollPosition - (collectionTop - winHeight), 0, collectionHeight*0.05/(collectionHeight + winHeight));
+                    }
 
-                    paralax( $('.collection .site__title'), 0, scrollPosition, 0.3);
-                    paralax( $('.collection__pic'), 0, scrollPosition, 0.15);
-                    paralax( $('.collection__wrap'), scrollPosition, 0, 0.05);
+                    //must-have
+                    if ( ( scrollPosition <= ( mustHaveTop + mustHaveHeight ) && ( ( winHeight + scrollPosition ) >= mustHaveTop ) ) ) {
+                        paralax( $('.must-have .site__title'), 0, scrollPosition - (mustHaveTop - winHeight), mustHaveHeight*0.3/(mustHaveHeight + winHeight));
+                        paralax( $('.must-have__bg').eq(0), 0, scrollPosition - (mustHaveTop - winHeight), mustHaveHeight*(-0.1)/(mustHaveHeight + winHeight));
+                        paralax( $('.must-have__bg').eq(1), 0, scrollPosition - (mustHaveTop - winHeight), mustHaveHeight*0.1/(mustHaveHeight + winHeight));
+                    }
+
+                    //most-wanted
+                    if ( ( scrollPosition <= ( mostWantedTop + mostWantedHeight ) && ( ( winHeight + scrollPosition ) >= mostWantedTop ) ) ) {
+                        paralax( $('.most-wanted .site__title'), 0, scrollPosition - (mostWantedTop - winHeight), mostWantedHeight*0.3/(mostWantedHeight + winHeight));
+                    }
+
+                    //sale
+                    if ( ( scrollPosition <= ( saleTop + saleHeight ) && ( ( winHeight + scrollPosition ) >= saleTop ) ) ) {
+                        paralax( $('.sale .site__title'), 0, scrollPosition - (saleTop - winHeight), saleHeight*0.3/(saleHeight + winHeight));
+                        paralax( $('.sale__bg'), 0, scrollPosition - (saleTop - winHeight), saleHeight*0.15/(saleHeight + winHeight));
+                    }
+
+                    //header
+                    if ( ( scrollPosition <= ( headerTop + headerHeight ) && ( ( winHeight + scrollPosition ) >= headerTop ) ) ) {
+                        paralax( $('.site__header-bg'), 0, scrollPosition, headerHeight*0.5/(headerHeight + winHeight));
+                    }
+
                 }
             }
         });
 
         function paralax( elem, x, y, koef) {
+
             elem.css( {
                 'transform': 'translate(' + x*koef + 'px, ' + y*koef +  'px )'
             } );
         };
 
     });
-
-    var Collection = function(obj) {
-
-        //private properties
-        var _obj = obj,
-            _siteTitle = _obj.find('.site__title'),
-            _collectionPic = _obj.find('.collection__pic'),
-            _collectionWrap = _obj.find('.collection__wrap'),
-            _collectionPicKoef = 0.15,
-            _collectionWrapKoef = 0.05,
-            _siteTitleKoef = 0.3;
-
-        //private methods
-        var _addEvents = function() {
-
-                $(window).on( {
-                    'scroll': function() {
-                        var scrollPos = $(this).scrollTop();
-
-                        _siteTitle.css( {
-                            'transform': 'translate(' + 0 + 'px, ' + scrollPos*_siteTitleKoef +  'px )'
-                        } );
-
-                        _collectionPic.css( {
-                            'transform': 'translate(' + 0 + 'px, ' + scrollPos*_collectionPicKoef +  'px )'
-                        } );
-
-                        _collectionWrap.css( {
-                            'transform': 'translate(' + scrollPos*_collectionWrapKoef + 'px, ' + 0 +  'px )'
-                        } );
-
-                    }
-                } );
-
-            },
-            _init = function() {
-                _addEvents();
-            };
-
-        //public properties
-
-        //public methods
-
-        _init();
-    };
 
     var News = function(obj) {
 
@@ -117,10 +90,7 @@ $(function(){
             _item = _obj.find( '.news__item' );
 
         //private methods
-        var _addEvents = function() {
-
-            },
-            _create = function() {
+        var _create = function() {
 
                 _item.each( function() {
                     var curElem = $( this),
@@ -135,131 +105,6 @@ $(function(){
             },
             _init = function() {
                 _create();
-            };
-
-        //public properties
-
-        //public methods
-
-        _init();
-    };
-
-    var MustHave = function(obj) {
-
-        //private properties
-        var _obj = obj,
-            _objTop = _obj.offset().top,
-            _siteTitle = _obj.find('.site__title'),
-            _mustHaveItem1 = _obj.find('.must-have__item').eq(0),
-            _mustHaveItem2 = _obj.find('.must-have__item').eq(1),
-            _mustHaveItemKoef1 = -0.1,
-            _mustHaveItemKoef2 = 0.1,
-            _siteTitleKoef = 0.3;
-
-        _mustHaveItem1 = _mustHaveItem1.find('.must-have__bg');
-
-        _mustHaveItem2 = _mustHaveItem2.find('.must-have__bg');
-
-        //private methods
-        var _addEvents = function() {
-
-                $(window).on( {
-                    'scroll': function() {
-
-                        var scrollPos = $(this).scrollTop() - _objTop + $(window).height();
-
-                        _siteTitle.css( {
-                            'transform': 'translate(' + 0 + 'px, ' + scrollPos*_siteTitleKoef +  'px )'
-                        } );
-
-                        _mustHaveItem1.css( {
-                            'transform': 'translate(' + 0 + 'px, ' + scrollPos*_mustHaveItemKoef1 +  'px )'
-                        } );
-
-                        _mustHaveItem2.css( {
-                            'transform': 'translate(' + 0 + 'px, ' + scrollPos*_mustHaveItemKoef2 +  'px )'
-                        } );
-                    }
-                } );
-
-            },
-            _init = function() {
-                _addEvents();
-            };
-
-        //public properties
-
-        //public methods
-
-        _init();
-    };
-
-    var MostWanted = function(obj) {
-
-        //private properties
-        var _obj = obj,
-            _objTop = _obj.offset().top,
-            _siteTitle = _obj.find('.site__title'),
-            _siteTitleKoef = 0.3;
-
-        //private methods
-        var _addEvents = function() {
-
-                $(window).on( {
-                    'scroll': function() {
-
-                        var scrollPos = $(this).scrollTop() - _objTop + $(window).height();
-
-                        _siteTitle.css( {
-                            'transform': 'translate(' + 0 + 'px, ' + scrollPos*_siteTitleKoef +  'px )'
-                        } );
-                    }
-                } );
-
-            },
-            _init = function() {
-                _addEvents();
-            };
-
-        //public properties
-
-        //public methods
-
-        _init();
-    };
-
-    var Sale = function(obj) {
-
-        //private properties
-        var _obj = obj,
-            _objTop = _obj.offset().top,
-            _siteTitle = _obj.find('.site__title'),
-            _saleBg = _obj.find('.sale__bg'),
-            _saleItem = _obj.find('.sale__item'),
-            _siteTitleKoef = 0.3,
-            _saleBgKoef = 0.15;
-
-        //private methods
-        var _addEvents = function() {
-
-                $(window).on( {
-                    'scroll': function() {
-
-                        var scrollPos = $(this).scrollTop() - _objTop + $(window).height();
-
-                        _siteTitle.css( {
-                            'transform': 'translate(' + 0 + 'px, ' + scrollPos*_siteTitleKoef +  'px )'
-                        } );
-
-                        _saleBg.css( {
-                            'transform': 'translate(' + 0 + 'px, ' + scrollPos*_saleBgKoef +  'px )'
-                        } );
-                    }
-                } );
-
-            },
-            _init = function() {
-                _addEvents();
             };
 
         //public properties
@@ -301,50 +146,6 @@ $(function(){
             _init = function () {
                 _addEvents();
             };
-
-        _init();
-    };
-
-    var Header = function(obj) {
-
-        //private properties
-        var _self = this,
-            _obj = obj,
-            _siteHeaderBg = _obj.find('.site__header-bg'),
-            _siteHeaderKoef = 0.5;
-
-        //private methods
-        var _addEvents = function() {
-
-                $(window).on( {
-                    'scroll': function() {
-                        var scrollPos = $(this).scrollTop();
-
-                        _siteHeaderBg.css( {
-                            'transform': 'translate(' + 0 + 'px, ' + scrollPos*_siteHeaderKoef +  'px )'
-                        } );
-
-                    }
-                } );
-
-            },
-            _paralax = function(scrollPos) {
-
-                _siteHeaderBg.css( {
-                    'transform': 'translate(' + 0 + 'px, ' + scrollPos*_siteHeaderKoef +  'px )'
-                } );
-            },
-            _init = function() {
-                _addEvents();
-                _obj[0].obj = _self;
-            };
-
-        //public properties
-
-        //public methods
-        _self.paralax = function( top ) {
-            _paralax( top );
-        };
 
         _init();
     };

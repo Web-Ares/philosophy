@@ -12,7 +12,7 @@
     left: 10px;
     width: 50px;
     height: 40px;
-    border: 1px solid #f0d2b0;
+    border: 1px solid $menu-border;
     cursor: pointer;
 
     span {
@@ -21,7 +21,7 @@
       width: 70%;
       max-width: 40px;
       height: 2px;
-      background: #797979;
+      background: $menu-line;
 
       &:before {
         display: block;
@@ -30,28 +30,24 @@
         left: 0;
         width: 0;
         height: 100%;
-        background: #f0d2b0;
+        background: $menu-hover-line;
         transition: width .3s ease .1s;
         content: '';
       }
 
       &:first-child {
-        top: 10px;
         @include absoluteCenterX();
+        top: 10px;
 
-        &:before {
-          transition-delay: 0s;
-        }
+        &:before { transition-delay: 0s; }
       }
 
       &:last-child {
+        @include absoluteCenterX();
         top: auto;
         bottom: 10px;
-        @include absoluteCenterX();
 
-        &:before {
-          transition-delay: .2s;
-        }
+        &:before { transition-delay: .2s; }
       }
     }
 
@@ -68,7 +64,7 @@
     left: 10px;
     width: 0;
     height: 0;
-    background: #f0d2b0;
+    background: $menu-wrap-back;
     transition: all .5s ease-in-out;
 
     &:before {
@@ -76,12 +72,11 @@
       position: absolute;
       top: 13px;
       left: 46px;
-      height: 1px;
+      height: 17px;
       width: 0;
       z-index: 2;
-      border: 8px solid #f0d2b0;
-      border-width: 8px 0;
-      background: #797979;
+      box-shadow: inset 0 8px 0 $menu-wrap-back, inset 0 -8px 0 $menu-wrap-back;
+      background: $menu-wrap-line;
       transition: width .5s ease .5s;
       content: '';
     }
@@ -95,8 +90,8 @@
       height: 40px;
       opacity: 0;
       z-index: 1;
-      background: url("../img/menu-arrow.png") no-repeat center;
-      border: 1px solid #797979;
+      background: $menu-wrap-after-back;
+      border: 1px solid $menu-wrap-line;
       transition: opacity .3s ease .5s;
       content: '';
     }
@@ -108,10 +103,10 @@
     padding: 12px 10px;
     font-size: 18px;
     text-transform: uppercase;
-    color: #797979;
+    color: $menu-item-color;
     white-space: nowrap;
 
-    &:visited { color: #797979; }
+    &:visited { color: $menu-item-color; }
 
     &-hover {
       display: block;
@@ -121,7 +116,7 @@
       width: 100%;
       height: 0;
       padding: 0 10px;
-      color: #fff;
+      color: $menu-item-hover-color;
       opacity: 0;
       transition: all .3s ease-in-out;
     }
@@ -162,9 +157,7 @@
 
       &-hover { padding: 0 20px; }
 
-      &:hover {
-        .menu__item-hover { padding: 18px 20px; }
-      }
+      &:hover .menu__item-hover { padding: 18px 20px; }
     }
 
     &__wrap {

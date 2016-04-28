@@ -1,3 +1,4 @@
+/*---------- CustomScroll ----------*/
 .mCustomScrollBox {
   position: relative;
   overflow: hidden;
@@ -44,7 +45,7 @@
     height: 30px;
     z-index: 1;
 
-    .mCSB_dragger_bar {
+    &_bar {
       position: relative;
       width: 4px;
       height: 100%;
@@ -53,9 +54,10 @@
       text-align: center;
     }
 
-    .mCSB_dragger_bar,
+    &_bar,
     &:hover .mCSB_dragger_bar,
     &:active .mCSB_dragger_bar,
-    &.mCSB_dragger_onDrag .mCSB_dragger_bar { background-color: #797979; }
+    &.mCSB_dragger_onDrag .mCSB_dragger_bar { background-color: $custom-scroll-back; }
   }
 }
+/*---------- /CustomScroll ----------*/

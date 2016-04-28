@@ -5,7 +5,7 @@
   height: 100vh;
   min-height: 400px;
 //  height: 687px;
-  background: #fff;
+  background: $collection-back;
 
   .site__title {
     position: absolute;
@@ -21,7 +21,7 @@
     bottom: 10px;
     left: 40px;
     z-index: 1;
-    border: 2px solid #a0b3b9;
+    border: 2px solid $collection-wrap-border;
     border-right: none;
   }
 
@@ -33,7 +33,7 @@
 
     p {
       margin-bottom: 10px;
-      color: #797979;
+      color: $collection-color;
       font-size: 11px;
       line-height: 16px;
     }
@@ -45,7 +45,7 @@
     font-weight: 400;
     font-family: $font-title;
     font-size: 18px;
-    color: #f0d2b0;
+    color: $collection-title-color;
   }
 
   &__pic {
@@ -60,28 +60,7 @@
     z-index: 2;
     background-size: cover;
     background-position: center;
-
-    &:before {
-      display: block;
-      position: absolute;
-      top: 100%;
-      right: 0;
-      left: 0;
-      height: 12px;
-      background: #fff;
-      content: '';
-    }
-
-    &:after {
-      display: block;
-      position: absolute;
-      right: 0;
-      bottom: 100%;
-      left: 0;
-      height: 12px;
-      background: #fff;
-      content: '';
-    }
+    box-shadow: 12px 12px 0 $collection-pic-border, -12px -12px 0 $collection-pic-border;
   }
 }
 
@@ -127,9 +106,7 @@
       height: 40vh;
 
       &:before,
-      &:after {
-        height: 18px;
-      }
+      &:after { height: 18px; }
     }
   }
 }
