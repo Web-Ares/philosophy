@@ -1,6 +1,6 @@
 /* --------------- follow-us --------------- */
 .follow-us {
-  padding: 10px 10px 20px;
+  padding: 17px 10px;
   text-align: center;
   cursor: default;
   perspective: 600px;
@@ -46,6 +46,7 @@
     figure {
       display: flex;
       justify-content: center;
+      align-items: center;
       position: absolute;
       top: 0;
       left: 0;
@@ -76,7 +77,10 @@
       transform: rotate(0deg);
     }
 
-    img { width: 50%; }
+    img {
+      width: 60%;
+      height: 60%;
+    }
   }
 
   &__linkedin .back {

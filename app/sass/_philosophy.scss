@@ -69,17 +69,29 @@
     height: calc(100% - 200px);
     max-width: 666px;
     max-height: 455px;
-    padding: 135px 54px 54px;
+    padding: 130px 52px 54px;
     background: none;
 
+    &:after {
+      left: 120px;
+    }
+
+    &__arrow {
+      bottom: -52px;
+      left: 56px;
+      border-width: 24px 18px 0 18px;
+    }
+
     &__title {
-      margin-bottom: 32px;
+      margin-bottom: 29px;
       font-size: 72px;
+      letter-spacing: 3px;
     }
 
     p {
       font-size: 14px;
       line-height: 22px;
+      letter-spacing: 1px;
     }
   }
 }

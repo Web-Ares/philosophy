@@ -24,17 +24,22 @@
       .must-have__bg:before { background: transparent; }
 
       .must-have__wrap {
-        bottom: 10%;
+        bottom: 6%;
         opacity: 1;
       }
+    }
+
+    &:first-of-type .must-have__bg {
+      top: 0;
+      bottom: -15%;
     }
   }
 
   &__bg {
     position: absolute;
-    top: -20%;
+    top: -15%;
     right: 0;
-    bottom: -20%;
+    bottom: 0;
     left: 0;
     z-index: 1;
     background-repeat: no-repeat;
@@ -57,7 +62,7 @@
   &__wrap {
     @include absoluteCenterX();
     bottom: 0;
-    width: 50%;
+    width: 40%;
     z-index: 2;
     opacity: 0;
     font-size: 3vw;
@@ -102,9 +107,10 @@
     }
 
     &__title {
-      margin-bottom: 30px;
+      margin-bottom: 21px;
       font-size: 36px;
       line-height: normal;
+      letter-spacing: 3px;
     }
   }
 }

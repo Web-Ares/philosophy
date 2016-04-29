@@ -7,81 +7,100 @@
     <title>Philosophy</title>
 
     <link rel="stylesheet" href="css/application.css">
-    <script src="js/vendors/jquery-2.1.4.min.js"></script>
-    <script src="js/vendors/jquery.mCustomScrollbar.js"></script>
-    <script src="js/app.min.js"></script>
-</head>
 
-<style>
-    .spinner {
-        display: flex;
-        align-items: center;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 3;
-        background: #f0d2b0;
-        transition: left .5s ease-in-out;
-    }
-    .spinner.hide {
-        left: 100%;
-    }
-    .spinner__wrap {
-        margin: 100px auto;
-        width: 50px;
-        height: 40px;
-        text-align: center;
-        font-size: 10px;
-    }
-
-    .spinner__item {
-        background-color: #fff;
-        height: 100%;
-        width: 6px;
-        display: inline-block;
-        -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
-        animation: sk-stretchdelay 1.2s infinite ease-in-out;
-    }
-
-    .spinner__item_2 {
-        -webkit-animation-delay: -1.1s;
-        animation-delay: -1.1s;
-    }
-
-    .spinner__item_3 {
-        -webkit-animation-delay: -1.0s;
-        animation-delay: -1.0s;
-    }
-
-    .spinner__item_4 {
-        -webkit-animation-delay: -0.9s;
-        animation-delay: -0.9s;
-    }
-
-    .spinner__item_5 {
-        -webkit-animation-delay: -0.8s;
-        animation-delay: -0.8s;
-    }
-
-    @-webkit-keyframes sk-stretchdelay {
-        0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
-        20% { -webkit-transform: scaleY(1.0) }
-    }
-
-    @keyframes sk-stretchdelay {
-        0%, 40%, 100% {
-            transform: scaleY(0.4);
-            -webkit-transform: scaleY(0.4);
+    <style>
+        .spinner {
+            display: flex;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
         }
-        20% {
-           transform: scaleY(1.0);
-           -webkit-transform: scaleY(1.0);
-       }
-    }
-</style>
+        .spinner:before,
+        .spinner:after {
+            display: block;
+            position: absolute;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            z-index: 1;
+            background: #f0d2b0;
+            transition: width .5s ease-in-out;
+            content: '';
+        }
+        .spinner:before {
+            left: 0;
+        }
+        .spinner:after {
+            right: 0;
+        }
+        .spinner.hide:before,
+        .spinner.hide:after {
+            width: 0;
+        }
+        .spinner__wrap {
+            position: relative;
+            margin: 0 auto;
+            width: 50px;
+            height: 40px;
+            z-index: 2;
+            text-align: center;
+            font-size: 10px;
+            transition: opacity .5s ease-in-out;
+        }
+        .spinner.hide .spinner__wrap {
+            opacity: 0;
+        }
+        .spinner__item {
+            background-color: #fff;
+            height: 100%;
+            width: 6px;
+            display: inline-block;
+            -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+            animation: sk-stretchdelay 1.2s infinite ease-in-out;
+        }
 
+        .spinner__item_2 {
+            -webkit-animation-delay: -1.1s;
+            animation-delay: -1.1s;
+        }
+
+        .spinner__item_3 {
+            -webkit-animation-delay: -1.0s;
+            animation-delay: -1.0s;
+        }
+
+        .spinner__item_4 {
+            -webkit-animation-delay: -0.9s;
+            animation-delay: -0.9s;
+        }
+
+        .spinner__item_5 {
+            -webkit-animation-delay: -0.8s;
+            animation-delay: -0.8s;
+        }
+
+        @-webkit-keyframes sk-stretchdelay {
+            0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
+            20% { -webkit-transform: scaleY(1.0) }
+        }
+
+        @keyframes sk-stretchdelay {
+            0%, 40%, 100% {
+                transform: scaleY(0.4);
+                -webkit-transform: scaleY(0.4);
+            }
+            20% {
+                transform: scaleY(1.0);
+                -webkit-transform: scaleY(1.0);
+            }
+        }
+    </style>
+
+</head>
 <body>
 <!-- spinner -->
 <div class="spinner">
@@ -275,194 +294,102 @@
             <h2 class="site__title">most wanted</h2>
             <!-- /site__title -->
 
-            <!-- most-wanted__item -->
-            <div class="most-wanted__item most-wanted__item_type1">
+            <!-- most-wanted__wrap -->
+            <div class="most-wanted__wrap">
 
-                <!-- most-wanted__pic -->
-                <div class="most-wanted__pic">
+                <!-- most-wanted__item -->
+                <a href="#" class="most-wanted__item most-wanted__item_type1">
 
-                    <img class="most-wanted__pic-normal" src="pic/most-wanted1.png" alt="zebrabaggy">
+                    <!-- most-wanted__pic -->
+                    <div class="most-wanted__pic">
 
-                    <img class="most-wanted__pic-hover" src="pic/most-wanted1_hover.png" alt="zebrabaggy">
+                        <img class="most-wanted__pic-normal" src="pic/most-wanted1.png" alt="zebrabaggy">
 
-                    <!-- most-wanted__frame -->
-                    <div class="most-wanted__frame"></div>
-                    <!-- /most-wanted__frame -->
+                        <img class="most-wanted__pic-hover" src="pic/most-wanted1_hover.png" alt="zebrabaggy">
 
-                </div>
-                <!-- /most-wanted__pic -->
+                        <!-- most-wanted__frame -->
+                        <div class="most-wanted__frame"></div>
+                        <!-- /most-wanted__frame -->
 
-                <a href="#" class="btn btn_type2"><span>zebrabaggy</span></a>
+                    </div>
+                    <!-- /most-wanted__pic -->
+
+                    <div class="most-wanted__title"><span>zebrabaggy</span></div>
+
+                </a>
+                <!-- /most-wanted__item -->
+
+                <!-- most-wanted__item -->
+                <a href="#" class="most-wanted__item most-wanted__item_type2">
+
+                    <!-- most-wanted__pic -->
+                    <div class="most-wanted__pic">
+
+                        <img class="most-wanted__pic-normal" src="pic/most-wanted2.png" alt="fontshirt">
+
+                        <img class="most-wanted__pic-hover" src="pic/most-wanted2_hover.png" alt="fontshirt">
+
+                        <!-- most-wanted__frame -->
+                        <div class="most-wanted__frame"></div>
+                        <!-- /most-wanted__frame -->
+
+                    </div>
+                    <!-- /most-wanted__pic -->
+
+                    <div class="most-wanted__title"><span>fontshirt</span></div>
+
+                </a>
+                <!-- /most-wanted__item -->
+
+                <!-- most-wanted__item -->
+                <a href="#" class="most-wanted__item most-wanted__item_type1">
+
+                    <!-- most-wanted__pic -->
+                    <div class="most-wanted__pic">
+
+                        <img class="most-wanted__pic-normal" src="pic/most-wanted3.png" alt="peachjacket">
+
+                        <img class="most-wanted__pic-hover" src="pic/most-wanted3_hover.png" alt="peachjacket">
+
+                        <!-- most-wanted__frame -->
+                        <div class="most-wanted__frame"></div>
+                        <!-- /most-wanted__frame -->
+
+                    </div>
+                    <!-- /most-wanted__pic -->
+
+                    <div class="most-wanted__title"><span>peachjacket</span></div>
+
+                </a>
+                <!-- /most-wanted__item -->
+
+                <!-- most-wanted__item -->
+                <a href="#" class="most-wanted__item most-wanted__item_type3">
+
+                    <!-- most-wanted__pic -->
+                    <div class="most-wanted__pic">
+
+                        <img class="most-wanted__pic-normal" src="pic/most-wanted4.png" alt="ripjeans">
+
+                        <img class="most-wanted__pic-hover" src="pic/most-wanted4_hover.png" alt="ripjeans">
+
+                        <!-- most-wanted__frame -->
+                        <div class="most-wanted__frame"></div>
+                        <!-- /most-wanted__frame -->
+
+                    </div>
+                    <!-- /most-wanted__pic -->
+
+                    <div class="most-wanted__title"><span>ripjeans</span></div>
+
+                </a>
+                <!-- /most-wanted__item -->
 
             </div>
-            <!-- /most-wanted__item -->
-
-            <!-- most-wanted__item -->
-            <div class="most-wanted__item most-wanted__item_type2">
-
-                <!-- most-wanted__pic -->
-                <div class="most-wanted__pic">
-
-                    <img class="most-wanted__pic-normal" src="pic/most-wanted2.png" alt="fontshirt">
-
-                    <img class="most-wanted__pic-hover" src="pic/most-wanted2_hover.png" alt="fontshirt">
-
-                    <!-- most-wanted__frame -->
-                    <div class="most-wanted__frame"></div>
-                    <!-- /most-wanted__frame -->
-
-                </div>
-                <!-- /most-wanted__pic -->
-
-                <a href="#" class="btn btn_type2"><span>fontshirt</span></a>
-
-            </div>
-            <!-- /most-wanted__item -->
-
-            <!-- most-wanted__item -->
-            <div class="most-wanted__item most-wanted__item_type1">
-
-                <!-- most-wanted__pic -->
-                <div class="most-wanted__pic">
-
-                    <img class="most-wanted__pic-normal" src="pic/most-wanted3.png" alt="peachjacket">
-
-                    <img class="most-wanted__pic-hover" src="pic/most-wanted3_hover.png" alt="peachjacket">
-
-                    <!-- most-wanted__frame -->
-                    <div class="most-wanted__frame"></div>
-                    <!-- /most-wanted__frame -->
-
-                </div>
-                <!-- /most-wanted__pic -->
-
-                <a href="#" class="btn btn_type2"><span>peachjacket</span></a>
-
-            </div>
-            <!-- /most-wanted__item -->
-
-            <!-- most-wanted__item -->
-            <div class="most-wanted__item most-wanted__item_type3">
-
-                <!-- most-wanted__pic -->
-                <div class="most-wanted__pic">
-
-                    <img class="most-wanted__pic-normal" src="pic/most-wanted4.png" alt="ripjeans">
-
-                    <img class="most-wanted__pic-hover" src="pic/most-wanted4_hover.png" alt="ripjeans">
-
-                    <!-- most-wanted__frame -->
-                    <div class="most-wanted__frame"></div>
-                    <!-- /most-wanted__frame -->
-
-                </div>
-                <!-- /most-wanted__pic -->
-
-                <a href="#" class="btn btn_type2"><span>ripjeans</span></a>
-
-            </div>
-            <!-- /most-wanted__item -->
+            <!-- /most-wanted__wrap -->
 
         </div>
         <!-- /most-wanted -->
-
-        <!-- anim -->
-        <div class="anim">
-
-            <!-- site__title -->
-            <h2 class="site__title">most wanted</h2>
-            <!-- /site__title -->
-
-            <!-- anim__item -->
-            <div class="anim__item anim__item_type1">
-
-                <!-- anim__pic -->
-                <div class="anim__pic">
-
-                    <img class="anim__pic-normal" src="pic/most-wanted1.png" alt="zebrabaggy">
-
-                    <img class="anim__pic-hover" src="pic/most-wanted1_hover.png" alt="zebrabaggy">
-
-                    <!-- anim__frame -->
-                    <div class="anim__frame"></div>
-                    <!-- /anim__frame -->
-
-                </div>
-                <!-- /anim__pic -->
-
-                <a href="#" class="btn btn_type2"><span>zebrabaggy</span></a>
-
-            </div>
-            <!-- /anim__item -->
-
-            <!-- anim__item -->
-            <div class="anim__item anim__item_type2">
-
-                <!-- anim__pic -->
-                <div class="anim__pic">
-
-                    <img class="anim__pic-normal" src="pic/most-wanted2.png" alt="fontshirt">
-
-                    <img class="anim__pic-hover" src="pic/most-wanted2_hover.png" alt="fontshirt">
-
-                    <!-- anim__frame -->
-                    <div class="anim__frame"></div>
-                    <!-- /anim__frame -->
-
-                </div>
-                <!-- /anim__pic -->
-
-                <a href="#" class="btn btn_type2"><span>fontshirt</span></a>
-
-            </div>
-            <!-- /anim__item -->
-
-            <!-- anim__item -->
-            <div class="anim__item anim__item_type1">
-
-                <!-- anim__pic -->
-                <div class="anim__pic">
-
-                    <img class="anim__pic-normal" src="pic/most-wanted3.png" alt="peachjacket">
-
-                    <img class="anim__pic-hover" src="pic/most-wanted3_hover.png" alt="peachjacket">
-
-                    <!-- anim__frame -->
-                    <div class="anim__frame"></div>
-                    <!-- /anim__frame -->
-
-                </div>
-                <!-- /anim__pic -->
-
-                <a href="#" class="btn btn_type2"><span>peachjacket</span></a>
-
-            </div>
-            <!-- /anim__item -->
-
-            <!-- anim__item -->
-            <div class="anim__item anim__item_type3">
-
-                <!-- anim__pic -->
-                <div class="anim__pic">
-
-                    <img class="anim__pic-normal" src="pic/most-wanted4.png" alt="ripjeans">
-
-                    <img class="anim__pic-hover" src="pic/most-wanted4_hover.png" alt="ripjeans">
-
-                    <!-- anim__frame -->
-                    <div class="anim__frame"></div>
-                    <!-- /anim__frame -->
-
-                </div>
-                <!-- /anim__pic -->
-
-                <a href="#" class="btn btn_type2"><span>ripjeans</span></a>
-
-            </div>
-            <!-- /anim__item -->
-
-        </div>
-        <!-- /anim -->
 
         <!-- sale -->
         <div class="sale">
@@ -532,10 +459,10 @@
             <!-- news__item -->
             <div class="news__item">
 
-                <!-- news__item-back -->
-                <a href="#" class="news__item-back">
+                <img src="pic/news1.jpg" alt="">
 
-                    <img src="pic/news1.jpg" alt="woolenart">
+                <!-- news__item-wrap -->
+                <a href="#" class="news__item-wrap">
 
                     <h3 class="news__title">woolenart</h3>
 
@@ -544,7 +471,7 @@
                     wrapped around your neck.</p>
 
                 </a>
-                <!-- /news__item-back -->
+                <!-- /news__item-wrap -->
 
             </div>
             <!-- /news__item -->
@@ -552,10 +479,10 @@
             <!-- news__item -->
             <div class="news__item">
 
-                <!-- news__item-back -->
-                <a href="#" class="news__item-back">
+                <img src="pic/news2.jpg" alt="">
 
-                    <img src="pic/news2.jpg" alt="sweetfash">
+                <!-- news__item-wrap -->
+                <a href="#" class="news__item-wrap">
 
                     <h3 class="news__title">sweetfash</h3>
 
@@ -564,7 +491,7 @@
                     </p>
 
                 </a>
-                <!-- /news__item-back -->
+                <!-- /news__item-wrap -->
 
             </div>
             <!-- /news__item -->
@@ -572,10 +499,10 @@
             <!-- news__item -->
             <div class="news__item">
 
-                <!-- news__item-back -->
-                <a href="#" class="news__item-back">
+                <img src="pic/news3.jpg" alt="">
 
-                    <img src="pic/news3.jpg" alt="jewelaura">
+                <!-- news__item-wrap -->
+                <a href="#" class="news__item-wrap">
 
                     <h3 class="news__title">jewelaura</h3>
 
@@ -585,7 +512,7 @@
                     </p>
 
                 </a>
-                <!-- /news__item-back -->
+                <!-- /news__item-wrap -->
 
             </div>
             <!-- /news__item -->
@@ -646,6 +573,10 @@
 
 </div>
 <!-- /site -->
+
+<script src="js/vendors/jquery-2.1.4.min.js"></script>
+<script src="js/vendors/jquery.mCustomScrollbar.min.js"></script>
+<script src="js/app.min.js"></script>
 
 </body>
 </html>

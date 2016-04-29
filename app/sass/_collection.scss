@@ -27,8 +27,8 @@
 
   &__info {
     position: absolute;
-    bottom: 10px;
-    left: 10px;
+    bottom: 8vh;
+    left: 6vw;
     width: 70vw;
 
     p {
@@ -51,7 +51,7 @@
   &__pic {
     display: block;
     position: absolute;
-    top: 10px;
+    top: 4vh;
     right: 0;
     left: 40px;
 //    width: 597px;
@@ -80,30 +80,36 @@
     }
 
     &__info {
-      top: 100px;
-      right: 20%;
+//      top: 100px;
+//      right: 20%;
+      top: 19vh;
+      right: 6vw;
       bottom: auto;
       left: auto;
-      width: 320px;
+      width: 327px;
 
       p {
-        margin-bottom: 20px;
+        margin-bottom: 36px;
         font-size: 14px;
         line-height: 22px;
+        letter-spacing: 1px;
       }
     }
 
     &__title {
-      margin-bottom: 20px;
+      margin-bottom: 24px;
       font-size: 36px;
+      letter-spacing: 3px;
     }
 
     &__pic {
       top: 70px;
       right: auto;
       left: 112px;
-      width: 35vw;
-      height: 40vh;
+//      width: 35vw;
+//      height: 40vh;
+      width: 50vw;
+      height: 63vh;
 
       &:before,
       &:after { height: 18px; }
