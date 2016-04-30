@@ -46,14 +46,14 @@
       @include absoluteCenterX();
       bottom: 0;
       opacity: 0;
-      transition: all .4s ease-in-out 0s;
+      transition: all .3s ease-in-out 0s;
     }
 
     &:hover {
       .btn {
         opacity: 1;
         bottom: 40px;
-        transition-delay: .4s;
+        transition-delay: .3s;
       }
 
       .sale__title {
@@ -66,7 +66,7 @@
         p {
           top: -20px;
           opacity: 0;
-          transition-delay: .2s;
+          transition-delay: .1s;
         }
       }
     }
@@ -79,7 +79,7 @@
     position: relative;
     width: calc(100% + 60px);
     left: -30px;
-    height: 289px;
+    height: 38vh;
     padding: 10px 30px;
     margin-bottom: 20px;
     font-size: 22px;
@@ -99,7 +99,7 @@
       font-size: 14px;
       line-height: 22px;
       color: $sale-info-color;
-      transition: all .4s ease-in-out;
+      transition: all .3s ease-in-out;
     }
   }
 
@@ -111,7 +111,7 @@
     font-weight: 400;
     text-transform: uppercase;
     color: $sale-info-color;
-    transition: all .4s ease-in-out .2s;
+    transition: all .3s ease-in-out .1s;
   }
 }
 

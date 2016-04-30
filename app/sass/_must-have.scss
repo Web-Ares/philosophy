@@ -26,6 +26,11 @@
       .must-have__wrap {
         bottom: 6%;
         opacity: 1;
+
+        p {
+          top: 0;
+          opacity: 1;
+        }
       }
     }
 
@@ -69,6 +74,13 @@
     line-height: 4vw;
     color: $must-have-color;
     transition: all .3s ease-in-out;
+
+    p {
+      position: relative;
+      top: 10px;
+      opacity: 0;
+      transition: all .3s ease-in-out .2s;
+    }
   }
 
   &__title {
@@ -100,10 +112,7 @@
       font-size: 14px;
       line-height: 22px;
 
-      &:hover {
-        bottom: 40px;
-        opacity: 1;
-      }
+      &:hover { bottom: 40px; }
     }
 
     &__title {

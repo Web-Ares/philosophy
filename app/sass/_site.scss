@@ -18,7 +18,6 @@
     min-height: 400px;
     height: 100vh;
     z-index: 3;
-    transition: filter .3s ease;
 
     &-bg {
       display: block;
@@ -32,23 +31,30 @@
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
+      transition: opacity .3s ease;
     }
   }
+
   &.blur {
     .site__header,
     .site__content,
     .site__footer { filter: blur(5px); }
   }
 
+
+  &.light {
+    .site__header,
+    .site__content,
+    .site__footer { opacity: .5; }
+  }
+
   &__content {
     position: relative;
     z-index: 2;
-    transition: filter .3s ease;
   }
 
   &__footer {
     position: relative;
-    transition: filter .3s ease;
   }
 
   &__title {

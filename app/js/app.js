@@ -50,15 +50,24 @@ $(function(){
 
         //private properties
         var _obj = obj,
+            _btn = $( '.menu-btn' ),
             _site = $( '.site' ),
-            _wrap = _obj.find( '.menu__wrap' );
+            _wrap = _obj.find( '.menu__wrap'),
+            _className = 'blur';
 
         //private methods
         var _addEvents = function () {
                 _obj.on( {
                     click: function() {
-                        _obj.toggleClass( 'open' );
-                        _site.toggleClass( 'blur' );
+                        _obj.removeClass( 'open' );
+                        _site.removeClass( _className );
+                    }
+                } );
+
+                _btn.on( {
+                    click: function() {
+                        _obj.addClass( 'open' );
+                        _site.addClass( _className );
                     }
                 } );
 
@@ -75,8 +84,17 @@ $(function(){
                 } );
 
             },
+            _detectBrowser = function () {
+                var ua = window.navigator.userAgent.toLowerCase(),
+                    is_ie = (/trident/gi).test(ua) || (/msie/gi).test(ua) || (/edge/gi).test(ua);
+
+                if (is_ie) {
+                    _className = 'light';
+                }
+            },
             _init = function () {
                 _addEvents();
+                _detectBrowser();
                 _wrap.mCustomScrollbar();
             };
 
@@ -132,9 +150,9 @@ $(function(){
 
                             //collection
                             if ( ( scrollPosition <= ( collectionTop + collectionHeight ) && ( ( winHeight + scrollPosition ) >= collectionTop ) ) ) {
-                                _paralax( $('.collection .site__title'), 0, scrollPosition - (collectionTop - winHeight), collectionHeight*0.3/(collectionHeight + winHeight));
-                                _paralax( $('.collection__pic'), 0, scrollPosition - (collectionTop - winHeight), collectionHeight*0.15/(collectionHeight + winHeight));
-                                _paralax( $('.collection__wrap'), scrollPosition - (collectionTop - winHeight), 0, collectionHeight*0.05/(collectionHeight + winHeight));
+                                _paralax( $('.collection .site__title'), 0, scrollPosition, collectionHeight*0.3/(collectionHeight + winHeight));
+                                _paralax( $('.collection__pic'), 0, scrollPosition, collectionHeight*0.15/(collectionHeight + winHeight));
+                                _paralax( $('.collection__wrap'), scrollPosition, 0, collectionHeight*0.05/(collectionHeight + winHeight));
                             }
 
                             //must-have

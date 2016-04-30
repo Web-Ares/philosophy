@@ -1,66 +1,66 @@
 /* --------------- menu --------------- */
+.menu-btn {
+  display: block;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 50px;
+  height: 40px;
+  z-index: 4;
+  border: 1px solid $menu-border;
+  cursor: pointer;
+
+  span {
+    display: block;
+    @include absoluteCenter();
+    width: 70%;
+    max-width: 40px;
+    height: 2px;
+    background: $menu-line;
+
+    &:before {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: $menu-hover-line;
+      transition: width .3s ease .1s;
+      content: '';
+    }
+
+    &:first-child {
+      @include absoluteCenterX();
+      top: 10px;
+
+      &:before { transition-delay: 0s; }
+    }
+
+    &:last-child {
+      @include absoluteCenterX();
+      top: auto;
+      bottom: 10px;
+
+      &:before { transition-delay: .2s; }
+    }
+  }
+
+  &:hover {
+
+    span:before { width: 100%;  }
+  }
+}
+
 .menu {
+  overflow: hidden;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 4;
-  -webkit-transform: translatez(0);
-  -moz-transform: translatez(0);
-  -ms-transform: translatez(0);
-  -o-transform: translatez(0);
-  transform: translatez(0);
-
-  &__btn {
-    display: block;
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 50px;
-    height: 40px;
-    border: 1px solid $menu-border;
-    cursor: pointer;
-
-    span {
-      display: block;
-      @include absoluteCenter();
-      width: 70%;
-      max-width: 40px;
-      height: 2px;
-      background: $menu-line;
-
-      &:before {
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 0;
-        height: 100%;
-        background: $menu-hover-line;
-        transition: width .3s ease .1s;
-        content: '';
-      }
-
-      &:first-child {
-        @include absoluteCenterX();
-        top: 10px;
-
-        &:before { transition-delay: 0s; }
-      }
-
-      &:last-child {
-        @include absoluteCenterX();
-        top: auto;
-        bottom: 10px;
-
-        &:before { transition-delay: .2s; }
-      }
-    }
-
-    &:hover {
-
-      span:before { width: 100%;  }
-    }
-  }
+  width: 0;
+  height: 0;
+  z-index: 5;
+  transition: all .5s ease-in-out;
 
   &__wrap {
     overflow: hidden;
@@ -71,6 +71,11 @@
     height: 0;
     background: $menu-wrap-back;
     transition: all .5s ease-in-out;
+
+    &:hover {
+
+      background: $menu-wrap-back;
+    }
 
     &:before {
       display: block;
@@ -142,7 +147,7 @@
     .menu__wrap {
       width: 250px;
       height: 390px;
-      padding: 40px 10px 10px;
+      padding: 43px 10px 10px;
       max-height: calc(100vh - 10px);
 
       &:before { width: 100%; }
@@ -153,6 +158,20 @@
 }
 
 @media (min-width: $portrait) {
+  .menu-btn {
+    top: 43px;
+    left: 29px;
+    width: 62px;
+    height: 48px;
+
+    span {
+
+      &:first-child { top: 12px; }
+
+      &:last-child { bottom: 12px; }
+    }
+  }
+
   .menu {
 
     &__item {
@@ -176,20 +195,6 @@
       &:after {
         width: 62px;
         height: 48px;
-      }
-    }
-
-    &__btn {
-      top: 43px;
-      left: 29px;
-      width: 62px;
-      height: 48px;
-
-      span {
-
-        &:first-child { top: 12px; }
-
-        &:last-child { bottom: 12px; }
       }
     }
 
