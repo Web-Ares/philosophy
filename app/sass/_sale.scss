@@ -15,7 +15,7 @@
   &__bg {
     display: block;
     position: absolute;
-    top: -20%;
+    top: -40%;
     right: 0;
     bottom: 0;
     left: 0;
@@ -37,7 +37,7 @@
   &__item {
     position: relative;
     width: 100%;
-    padding: 24px 11px 40px;
+    padding: 21px 14px 32px;
     margin-bottom: 40px;
     border: 2px solid $sale-item-border;
     z-index: 2;
@@ -87,7 +87,7 @@
     font-family: $font-semibold;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: top center;
   }
 
   &__info {
@@ -113,6 +113,15 @@
     color: $sale-info-color;
     transition: all .3s ease-in-out .1s;
   }
+
+  .btn {
+    width: calc(100% - 24px);
+    max-width: 215px;
+
+    span {
+      min-width: 100%;
+    }
+  }
 }
 
 @media (min-width: $portrait) {
@@ -134,21 +143,35 @@
 
     &__wrap {
       justify-content: space-between;
-      padding: 0 78px;
+      padding: 0 44px;
     }
 
     &__item {
-      width: calc(50% - 85px);
+      width: calc(50% - 60px);
       margin-bottom: 0;
     }
 
     &__price {
-      width: calc(100% + 156px);
-      left: -78px;
-      height: 289px;
-      padding: 26px 78px;
+      width: calc(100% + 120px);
+      left: -60px;
+      padding: 23px 60px;
       margin-bottom: 40px;
       font-size: 48px;
+    }
+  }
+}
+
+@media (min-width: $desktop) {
+  .sale {
+
+    &__wrap { padding: 0 84px; }
+
+    &__item { width: calc(50% - 114px); }
+
+    &__price {
+      width: calc(100% + 184px);
+      left: -92px;
+      padding: 23px 86px;
     }
   }
 }

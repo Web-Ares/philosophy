@@ -29,8 +29,6 @@ $(function(){
                         curPic = curElem.find( 'img'),
                         wrapElem = curElem.find( '.news__item-wrap' );
 
-                    //curElem.prepend(faceElem);
-                    //curElem.prepend(curPic.clone());
                     wrapElem.prepend(curPic.clone());
                 } );
 
@@ -162,12 +160,12 @@ $(function(){
 
                             //must-have-bg1
                             if ( ( scrollPosition <= ( mustHaveBg1Top + mustHaveBg1Height ) && ( ( winHeight + scrollPosition ) >= mustHaveBg1Top ) ) ) {
-                                _paralax( $('.must-have__bg').eq(0), 0, scrollPosition - (mustHaveBg1Top - winHeight), mustHaveBg1Height*(-0.1)/(mustHaveBg1Height + winHeight));
+                                _paralax( $('.must-have__bg').eq(0), 0, scrollPosition - (mustHaveBg1Top - winHeight), mustHaveBg1Height*(-0.2)/(mustHaveBg1Height + winHeight));
                             }
 
                             //must-have-bg2
                             if ( ( scrollPosition <= ( mustHaveBg2Top + mustHaveBg2Height ) && ( ( winHeight + scrollPosition ) >= mustHaveBg2Top ) ) ) {
-                                _paralax( $('.must-have__bg').eq(1), 0, scrollPosition - (mustHaveTop - winHeight), mustHaveBg2Height*0.1/(mustHaveBg2Height + winHeight));
+                                _paralax( $('.must-have__bg').eq(1), 0, scrollPosition - (mustHaveTop - winHeight), mustHaveBg2Height*0.2/(mustHaveBg2Height + winHeight));
                             }
 
                             //most-wanted
@@ -178,7 +176,7 @@ $(function(){
                             //sale
                             if ( ( scrollPosition <= ( saleTop + saleHeight ) && ( ( winHeight + scrollPosition ) >= saleTop ) ) ) {
                                 _paralax( $('.sale .site__title'), 0, scrollPosition - (saleTop - winHeight), saleHeight*0.3/(saleHeight + winHeight));
-                                _paralax( $('.sale__bg'), 0, scrollPosition - (saleTop - winHeight), saleHeight*0.2/(saleHeight + winHeight));
+                                _paralax( $('.sale__bg'), 0, scrollPosition - (saleTop - winHeight), saleHeight*0.4/(saleHeight + winHeight));
                             }
 
                             //header

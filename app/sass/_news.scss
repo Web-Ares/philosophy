@@ -29,10 +29,11 @@
       right: 53px;
       bottom: 18px;
       left: 53px;
-      padding: 6% 10%;
+      padding: 4% 10%;
       border: 2px solid $news-back-border;
       border-width: 2px 2px 2px 0;
-      transition: transform .5s ease-in-out;
+      opacity: 0;
+      transition: all .5s ease-in-out;
       transform: scale(0);
 
       &:before {
@@ -84,17 +85,19 @@
     &:hover {
 
       .news__item-wrap {
+        opacity: 1;
         transform: scale(1);
       }
     }
   }
 
   &__title {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     font-size: 6vw;
     color: $news-title-color;
     font-family: $font-title;
     font-weight: 400;
+    letter-spacing: 3px;
 
     &:before {
       display: block;
