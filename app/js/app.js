@@ -119,7 +119,7 @@ $(function(){
                         }, 1000 );
                     },
                     'resize': function() {
-                        _addCustomScroll();
+                        _body.mCustomScrollbar( 'update' );
                     }
                 } );
             },
@@ -142,6 +142,7 @@ $(function(){
 
 
                 _body.mCustomScrollbar({
+                    keyboard: true,
                     callbacks:{
                         whileScrolling:function(){
                             var scrollPosition = parseInt(this.mcs.top*(-1));
@@ -200,8 +201,10 @@ $(function(){
                 }
             },
             _paralax = function( elem, x, y, koef ) {
+                var translate = 'translate3d(' + Math.round(x*koef) + 'px, ' + Math.round(y*koef) + 'px, 0px )';
+
                 elem.css( {
-                    'transform': 'translate(' + x*koef + 'px, ' + y*koef +  'px )'
+                    'transform': translate
                 } );
             },
             _init = function() {

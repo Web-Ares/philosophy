@@ -103,10 +103,10 @@
         &:before {
           display: block;
           position: absolute;
-          top: 0;
+          top: -1px;
           right: 10%;
           left: 10%;
-          height: 2px;
+          height: 4px;
           background: #fff;
           content: '';
         }
@@ -151,10 +151,10 @@
         &:before {
           display: block;
           position: absolute;
-          bottom: 0;
+          bottom: -1px;
           right: 10%;
           left: 10%;
-          height: 2px;
+          height: 4px;
           background: #fff;
           content: '';
         }
